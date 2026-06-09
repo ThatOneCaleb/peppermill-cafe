@@ -6,168 +6,136 @@ import { motion, useInView } from "motion/react";
 const specials = [
   {
     name: "The Country Benny",
-    subtitle: "Our Signature Creation",
-    desc: "Grilled house-made biscuits stacked with tender sausage patties, sharp Cheddar cheese, two perfectly poached eggs, rich sausage gravy, and a heap of golden home fries. This is the dish Standale talks about.",
+    annotation: "The one they all talk about",
+    desc: "Grilled house-made biscuits stacked with tender sausage patties, sharp Cheddar cheese, two perfectly poached eggs, rich from-scratch sausage gravy, and a heap of golden taters. This is the dish Standale drives across town for.",
     details: [
       "House-made biscuits, baked fresh",
       "Sausage gravy from scratch",
       "Two poached eggs, any style",
-      "Sharp Cheddar, golden taters",
+      "Sharp Cheddar & golden taters",
     ],
-    badge: "The One & Only",
-    bgGradient: "from-[#922b21] to-[#5d1a13]",
-    accentColor: "#f5c842",
-    textColor: "#fdf6e3",
   },
   {
-    name: "The Blu Suede Shoe Waffle Combo",
-    subtitle: "Elvis Would Approve",
-    desc: "A golden, crispy-on-the-outside, fluffy-on-the-inside Belgian waffle loaded with fresh banana slices, peanut butter chips, a generous drizzle of chocolate sauce, and a cloud of fresh whipped cream. Pure dessert for breakfast.",
+    name: "The Blu Suede Shoe Waffle",
+    annotation: "Elvis would approve",
+    desc: "A golden, crispy-on-the-outside, fluffy-on-the-inside Belgian waffle loaded with fresh banana slices, peanut butter chips, a generous drizzle of chocolate sauce, and a cloud of whipped cream. This is dessert for breakfast and we are not sorry.",
     details: [
       "Belgian waffle, made to order",
-      "Fresh banana & peanut butter chips",
+      "Fresh banana & PB chips",
       "Chocolate drizzle & whipped cream",
-      "Pairs perfect with a hot coffee",
+      "Pairs with a hot cup of coffee",
     ],
-    badge: "Weekend Must-Have",
-    bgGradient: "from-[#5d3a1a] to-[#3b2010]",
-    accentColor: "#f5c842",
-    textColor: "#fdf6e3",
   },
   {
     name: "Fresh Cinnamon Rolls",
-    subtitle: "Baked Right Here",
-    desc: "Soft, pillowy cinnamon rolls baked in-house every morning and glazed with a sweet cream cheese frosting while still warm. Order one — or two. We won&apos;t judge.",
+    annotation: "Get here early -- they sell out",
+    desc: "Soft, pillowy cinnamon rolls baked in-house every morning and glazed with sweet cream cheese frosting while still warm from the oven. Order one. Or two. We will not judge.",
     details: [
       "Baked fresh every single morning",
-      "Cream cheese glaze while warm",
+      "Cream cheese glaze, still warm",
       "Perfect with our house coffee",
-      "Sell out fast — come early!",
+      "Sell out fast -- come early!",
     ],
-    badge: "Baked Fresh Daily",
-    bgGradient: "from-[#b45309] to-[#78350f]",
-    accentColor: "#fdf6e3",
-    textColor: "#fdf6e3",
   },
 ];
 
 export default function Specials() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
     <section
       id="specials"
-      className="relative bg-[#fff9f0] py-20 lg:py-28 overflow-hidden"
+      className="relative bg-coffee py-24 lg:py-32 overflow-hidden"
     >
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#e8941a] via-[#f5c842] to-[#e8941a]" />
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#e8941a] via-[#f5c842] to-[#e8941a]" />
+      {/* Warm ambient glows */}
+      <div className="absolute top-1/4 right-0 w-[400px] h-[400px] rounded-full bg-maple/8 blur-[120px]" />
+      <div className="absolute bottom-1/4 left-0 w-[350px] h-[350px] rounded-full bg-egg-yolk/5 blur-[100px]" />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6" ref={ref}>
-        {/* Section header */}
-        <div className="text-center mb-14">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5 }}
-            className="font-[family-name:var(--font-caveat)] text-[#e8941a] text-2xl mb-3"
-          >
-            Can&apos;t-Miss Dishes
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="font-[family-name:var(--font-playfair)] text-[#3b2010] text-4xl sm:text-5xl font-bold mb-4"
-          >
+      <div className="relative max-w-7xl mx-auto px-6 sm:px-8" ref={ref}>
+        {/* Section label */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-4"
+        >
+          <span className="font-[family-name:var(--font-barlow-condensed)] text-egg-yolk text-sm font-bold uppercase tracking-[0.3em]">
             Weekend Specials
-          </motion.h2>
-          <motion.div
-            initial={{ opacity: 0, scaleX: 0 }}
-            animate={inView ? { opacity: 1, scaleX: 1 } : {}}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex items-center justify-center gap-3 mb-4"
-          >
-            <div className="w-12 h-px bg-[#e8941a]" />
-            <div className="w-2 h-2 rounded-full bg-[#e8941a]" />
-            <div className="w-12 h-px bg-[#e8941a]" />
-          </motion.div>
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.25 }}
-            className="font-[family-name:var(--font-lato)] text-[#5d3a1a] text-base max-w-xl mx-auto"
-          >
-            These are the dishes that keep our regulars coming back. The ones folks drive across town for.
-          </motion.p>
-        </div>
+          </span>
+        </motion.div>
+
+        {/* Heading */}
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="font-[family-name:var(--font-dm-serif-display)] text-cream text-4xl sm:text-5xl lg:text-6xl text-center leading-tight mb-6"
+        >
+          Worth Waking Up For
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 15 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="font-[family-name:var(--font-lora)] text-cream/50 text-lg text-center max-w-xl mx-auto mb-16"
+        >
+          These are the dishes that keep our regulars coming back. The ones
+          folks drive across town for.
+        </motion.p>
 
         {/* Specials cards */}
-        <div className="space-y-6">
+        <div className="space-y-8">
           {specials.map((item, i) => (
             <motion.div
               key={item.name}
-              initial={{ opacity: 0, x: i % 2 === 0 ? -40 : 40 }}
+              initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 + i * 0.15 }}
-              className={`relative rounded-2xl overflow-hidden bg-gradient-to-r ${item.bgGradient} shadow-xl`}
+              transition={{ duration: 0.7, delay: 0.3 + i * 0.15 }}
+              className="relative rounded-3xl overflow-hidden border border-cream/10 warm-glow bg-gradient-to-r from-cream/[0.04] to-cream/[0.02]"
             >
-              <div className="relative grid md:grid-cols-5 gap-0">
-                {/* Left: Image placeholder */}
-                <div className="md:col-span-2 relative h-52 md:h-auto min-h-[200px] flex items-center justify-center">
-                  <div className="absolute inset-0 bg-black/20" />
+              <div className="grid md:grid-cols-5 gap-0">
+                {/* Left: warm placeholder */}
+                <div
+                  className="md:col-span-2 relative h-56 md:h-auto md:min-h-[300px] bg-gradient-to-br from-[#5A3D2B] via-coffee to-[#2A1D14] flex items-center justify-center"
+                  role="img"
+                  aria-label={`Photo of ${item.name}`}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-coffee/40 md:block hidden" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-coffee/60 to-transparent md:hidden" />
                   <div className="relative text-center px-6">
-                    <div
-                      className="font-[family-name:var(--font-caveat)] text-6xl sm:text-7xl mb-2"
-                      style={{ color: item.accentColor }}
-                    >
-                      {i === 0 ? "🍳" : i === 1 ? "🧇" : "🥐"}
+                    <div className="w-20 h-20 mx-auto rounded-full bg-egg-yolk/10 border border-egg-yolk/20 flex items-center justify-center mb-4">
+                      <span className="font-[family-name:var(--font-dm-serif-display)] text-egg-yolk text-3xl">
+                        {i + 1}
+                      </span>
                     </div>
-                    <span
-                      className="inline-block font-[family-name:var(--font-lato)] text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border"
-                      style={{
-                        color: item.accentColor,
-                        borderColor: `${item.accentColor}40`,
-                        backgroundColor: `${item.accentColor}15`,
-                      }}
-                    >
-                      {item.badge}
+                    <span className="font-[family-name:var(--font-barlow-condensed)] text-cream/40 text-xs font-bold uppercase tracking-[0.2em]">
+                      Must Try
                     </span>
                   </div>
                 </div>
 
-                {/* Right: Content */}
-                <div className="md:col-span-3 p-6 sm:p-8">
-                  <p
-                    className="font-[family-name:var(--font-caveat)] text-lg mb-1"
-                    style={{ color: `${item.accentColor}cc` }}
-                  >
-                    {item.subtitle}
+                {/* Right: content */}
+                <div className="md:col-span-3 p-8 sm:p-10 flex flex-col justify-center">
+                  {/* Handwritten annotation */}
+                  <p className="font-[family-name:var(--font-shadows-into-light)] text-egg-yolk text-xl mb-2">
+                    {item.annotation}
                   </p>
-                  <h3
-                    className="font-[family-name:var(--font-playfair)] text-2xl sm:text-3xl font-bold mb-4 leading-tight"
-                    style={{ color: item.textColor }}
-                  >
+
+                  <h3 className="font-[family-name:var(--font-dm-serif-display)] text-cream text-2xl sm:text-3xl lg:text-4xl leading-tight mb-4">
                     {item.name}
                   </h3>
-                  <p
-                    className="font-[family-name:var(--font-lato)] text-sm leading-relaxed mb-5"
-                    style={{ color: `${item.textColor}cc` }}
-                  >
+
+                  <p className="font-[family-name:var(--font-lora)] text-cream/60 text-base leading-relaxed mb-6">
                     {item.desc}
                   </p>
-                  <div className="grid grid-cols-2 gap-2">
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {item.details.map((detail) => (
-                      <div key={detail} className="flex items-start gap-2">
-                        <div
-                          className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0"
-                          style={{ backgroundColor: item.accentColor }}
-                        />
-                        <span
-                          className="font-[family-name:var(--font-lato)] text-xs leading-relaxed"
-                          style={{ color: `${item.textColor}99` }}
-                        >
+                      <div key={detail} className="flex items-center gap-3">
+                        <div className="w-1.5 h-1.5 rounded-full bg-egg-yolk flex-shrink-0" />
+                        <span className="font-[family-name:var(--font-barlow-condensed)] text-cream/50 text-sm tracking-wide">
                           {detail}
                         </span>
                       </div>
@@ -179,19 +147,22 @@ export default function Specials() {
           ))}
         </div>
 
-        {/* Rotating specials note */}
+        {/* Bottom note */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.75 }}
-          className="mt-10 text-center bg-[#3b2010]/5 border border-[#d4a96a]/30 rounded-2xl p-6"
+          transition={{ duration: 0.5, delay: 0.8 }}
+          className="mt-14 text-center"
         >
-          <p className="font-[family-name:var(--font-caveat)] text-[#e8941a] text-2xl mb-2">
-            Ask about our rotating daily specials!
-          </p>
-          <p className="font-[family-name:var(--font-lato)] text-[#5d3a1a] text-sm">
-            We mix things up to keep it fresh. Call us or stop in to find out what&apos;s cooking today.
-          </p>
+          <div className="inline-block bg-cream/5 border border-cream/10 rounded-2xl px-8 py-6">
+            <p className="font-[family-name:var(--font-shadows-into-light)] text-egg-yolk text-2xl mb-2">
+              Ask about our rotating daily specials!
+            </p>
+            <p className="font-[family-name:var(--font-lora)] text-cream/40 text-sm">
+              We mix things up to keep it fresh. Call or stop in to see
+              what&apos;s cooking.
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>

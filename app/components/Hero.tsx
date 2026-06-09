@@ -11,135 +11,125 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#3b2010]"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-coffee noise-bg diner-check"
     >
-      {/* Background texture layers */}
-      <div className="absolute inset-0 bg-[#2a1508]" />
+      {/* Deep warm gradient base */}
+      <div className="absolute inset-0 bg-gradient-to-br from-coffee via-[#2A1D14] to-[#1A0F08]" />
 
-      {/* Warm gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#5d3a1a]/60 via-[#3b2010]/80 to-[#1a0a02]/90" />
+      {/* Warm ambient glows */}
+      <div className="absolute top-1/4 left-1/6 w-[500px] h-[500px] rounded-full bg-maple/8 blur-[120px]" />
+      <div className="absolute bottom-1/4 right-1/6 w-[400px] h-[400px] rounded-full bg-egg-yolk/6 blur-[100px]" />
 
-      {/* Decorative circles - warm bokeh effect */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-[#e8941a]/10 blur-3xl" />
-      <div className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full bg-[#f5c842]/8 blur-3xl" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#c0392b]/5 blur-3xl" />
-
-      {/* Placeholder for hero image — warm diner ambiance */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="w-full h-full bg-gradient-to-t from-[#5d3a1a] via-[#e8941a]/20 to-[#f5c842]/10" />
-      </div>
+      {/* Subtle grid overlay */}
+      <div
+        className="absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(245,236,215,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(245,236,215,0.3) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+        }}
+      />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto pt-20">
-        {/* Handwritten top label */}
+      <div className="relative z-10 text-center px-6 sm:px-8 max-w-5xl mx-auto">
+        {/* Handwritten tagline */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="font-[family-name:var(--font-caveat)] text-[#f5c842] text-2xl sm:text-3xl mb-4 tracking-wide"
-        >
-          Grand Rapids&apos; West Side Favorite
-        </motion.p>
-
-        {/* Main heading */}
-        <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.35 }}
-          className="font-[family-name:var(--font-playfair)] text-[#fdf6e3] text-5xl sm:text-7xl lg:text-8xl font-bold leading-tight mb-4"
+          transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" as const }}
+          className="font-[family-name:var(--font-shadows-into-light)] text-egg-yolk text-2xl sm:text-3xl mb-6"
         >
-          Peppermill
-          <span className="block text-[#f5c842]">Cafe</span>
-        </motion.h1>
-
-        {/* Decorative rule */}
-        <motion.div
-          initial={{ opacity: 0, scaleX: 0 }}
-          animate={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 0.6, delay: 0.55 }}
-          className="flex items-center justify-center gap-3 mb-6"
-        >
-          <div className="w-16 h-px bg-[#e8941a]" />
-          <div className="w-2 h-2 rounded-full bg-[#e8941a]" />
-          <div className="w-16 h-px bg-[#e8941a]" />
-        </motion.div>
-
-        {/* Tagline */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.65 }}
-          className="font-[family-name:var(--font-lato)] text-[#d4a96a] text-lg sm:text-xl lg:text-2xl font-light tracking-wide mb-10 max-w-2xl mx-auto"
-        >
-          Standale&apos;s Favorite Breakfast &amp; Brunch Spot
+          Standale&apos;s Favorite Breakfast &amp; Brunch
         </motion.p>
 
-        {/* Hours quick info */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
+        {/* PEPPERMILL - massive display type */}
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.75 }}
-          className="flex flex-wrap justify-center gap-6 mb-10 text-sm"
+          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" as const }}
+          className="font-[family-name:var(--font-dm-serif-display)] text-cream text-[4rem] sm:text-[6rem] md:text-[7rem] lg:text-[8rem] leading-[0.9] tracking-tight mb-2"
         >
-          <div className="flex items-center gap-2 text-[#fdf6e3]/80">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#f5c842]" />
-            <span className="font-[family-name:var(--font-lato)]">Mon–Sat: 6AM – 2PM</span>
+          PEPPERMILL
+        </motion.h1>
+
+        {/* CAFE - condensed, letterspaced */}
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.55, ease: "easeOut" as const }}
+          className="font-[family-name:var(--font-barlow-condensed)] text-egg-yolk text-2xl sm:text-3xl md:text-4xl font-semibold uppercase tracking-[0.5em] sm:tracking-[0.6em] mb-10"
+        >
+          CAFE
+        </motion.p>
+
+        {/* Rating badge */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.7, ease: "easeOut" as const }}
+          className="inline-flex items-center gap-3 bg-cream/10 backdrop-blur-sm border border-cream/15 rounded-full px-6 py-3 mb-10"
+        >
+          <div className="flex gap-0.5">
+            {[1, 2, 3, 4, 5].map((i) => (
+              <motion.svg
+                key={i}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.8 + i * 0.1 }}
+                className={`w-5 h-5 ${i <= 4 ? "text-egg-yolk" : "text-egg-yolk/50"}`}
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </motion.svg>
+            ))}
           </div>
-          <div className="flex items-center gap-2 text-[#fdf6e3]/80">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#f5c842]" />
-            <span className="font-[family-name:var(--font-lato)]">Sun: 7AM – 2PM</span>
-          </div>
-          <div className="flex items-center gap-2 text-[#fdf6e3]/80">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#f5c842]" />
-            <span className="font-[family-name:var(--font-lato)]">4511 Lake Michigan Dr NW</span>
-          </div>
+          <span className="font-[family-name:var(--font-barlow-condensed)] text-cream text-base font-semibold tracking-wide">
+            4.7 Stars
+          </span>
+          <span className="text-cream/30">|</span>
+          <span className="font-[family-name:var(--font-barlow-condensed)] text-cream/70 text-sm tracking-wide">
+            1,000+ Reviews
+          </span>
         </motion.div>
 
         {/* CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.85 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          transition={{ duration: 0.6, delay: 0.85, ease: "easeOut" as const }}
+          className="flex flex-col sm:flex-row gap-4 justify-center mb-14"
         >
           <button
             onClick={() => handleScroll("#menu")}
-            className="font-[family-name:var(--font-lato)] bg-[#e8941a] hover:bg-[#f5c842] text-[#3b2010] font-bold text-base uppercase tracking-widest px-8 py-4 rounded-full transition-all duration-200 hover:scale-105 shadow-lg shadow-[#e8941a]/30"
+            className="font-[family-name:var(--font-barlow-condensed)] bg-maple hover:bg-maple/90 text-white font-bold text-base uppercase tracking-[0.2em] px-10 py-4 rounded-full transition-all duration-300 hover:scale-105 shadow-xl shadow-maple/30"
           >
-            See Our Menu
+            See the Menu
           </button>
           <button
-            onClick={() => handleScroll("#about")}
-            className="font-[family-name:var(--font-lato)] border-2 border-[#d4a96a] hover:border-[#f5c842] text-[#fdf6e3] hover:text-[#f5c842] font-bold text-base uppercase tracking-widest px-8 py-4 rounded-full transition-all duration-200 hover:scale-105"
+            onClick={() => handleScroll("#visit")}
+            className="font-[family-name:var(--font-barlow-condensed)] border-2 border-cream/30 hover:border-cream/60 text-cream hover:text-white font-bold text-base uppercase tracking-[0.2em] px-10 py-4 rounded-full transition-all duration-300 hover:scale-105"
           >
-            Our Story
+            Find Us
           </button>
         </motion.div>
 
-        {/* Rating badge */}
+        {/* Hours pill */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 1.0 }}
-          className="mt-12 inline-flex items-center gap-2 bg-[#5d3a1a]/60 backdrop-blur-sm border border-[#d4a96a]/30 rounded-full px-5 py-2.5"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.0, ease: "easeOut" as const }}
+          className="inline-flex items-center gap-4 bg-cream/5 border border-cream/10 rounded-full px-6 py-2.5"
         >
-          <div className="flex gap-0.5">
-            {[1, 2, 3, 4, 5].map((i) => (
-              <svg
-                key={i}
-                className={`w-4 h-4 ${i === 5 ? "text-[#d4a96a]" : "text-[#f5c842]"}`}
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-            ))}
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+            <span className="font-[family-name:var(--font-barlow-condensed)] text-cream/70 text-sm tracking-wide">
+              Mon-Sat 6AM-2PM
+            </span>
           </div>
-          <span className="font-[family-name:var(--font-lato)] text-[#fdf6e3] text-sm font-semibold">
-            4.7/5 Stars
-          </span>
-          <span className="font-[family-name:var(--font-lato)] text-[#d4a96a] text-sm">
-            • Standale&apos;s #1 Breakfast
+          <div className="w-px h-4 bg-cream/20" />
+          <span className="font-[family-name:var(--font-barlow-condensed)] text-cream/70 text-sm tracking-wide">
+            Sun 7AM-2PM
           </span>
         </motion.div>
       </div>
@@ -151,15 +141,15 @@ export default function Hero() {
         transition={{ duration: 1, delay: 1.4 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="font-[family-name:var(--font-lato)] text-[#d4a96a]/60 text-xs uppercase tracking-widest">
+        <span className="font-[family-name:var(--font-barlow-condensed)] text-cream/40 text-xs uppercase tracking-[0.3em]">
           Scroll
         </span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          className="w-5 h-8 border-2 border-[#d4a96a]/40 rounded-full flex justify-center pt-1.5"
+          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" as const }}
+          className="w-5 h-9 border-2 border-cream/20 rounded-full flex justify-center pt-2"
         >
-          <div className="w-1 h-2 bg-[#d4a96a]/60 rounded-full" />
+          <div className="w-1 h-2 bg-cream/40 rounded-full" />
         </motion.div>
       </motion.div>
     </section>

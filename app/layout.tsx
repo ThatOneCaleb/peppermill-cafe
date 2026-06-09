@@ -1,32 +1,39 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Caveat, Lato } from "next/font/google";
+import { DM_Serif_Display, Barlow_Condensed, Lora, Shadows_Into_Light } from "next/font/google";
 import "./globals.css";
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const dmSerifDisplay = DM_Serif_Display({
+  variable: "--font-dm-serif-display",
   subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
+  weight: ["400"],
   display: "swap",
 });
 
-const caveat = Caveat({
-  variable: "--font-caveat",
+const barlowCondensed = Barlow_Condensed({
+  variable: "--font-barlow-condensed",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const lato = Lato({
-  variable: "--font-lato",
+const lora = Lora({
+  variable: "--font-lora",
   subsets: ["latin"],
-  weight: ["300", "400", "700", "900"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const shadowsIntoLight = Shadows_Into_Light({
+  variable: "--font-shadows-into-light",
+  subsets: ["latin"],
+  weight: ["400"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Peppermill Cafe | Standale's Favorite Breakfast & Brunch Spot",
+  title: "Peppermill Cafe | Standale's Favorite Breakfast & Brunch",
   description:
-    "Peppermill Cafe in Grand Rapids, MI serves up hearty breakfasts and brunch favorites. Huge portions, friendly staff, and a warm community feel in the heart of Standale. Open Mon–Sat 6AM–2PM, Sun 7AM–2PM.",
+    "Peppermill Cafe in Grand Rapids, MI serves up hearty breakfasts and brunch favorites. Huge portions, friendly staff, and a warm community feel in the heart of Standale. Open Mon-Sat 6AM-2PM, Sun 7AM-2PM.",
   keywords: [
     "Peppermill Cafe",
     "breakfast Grand Rapids",
@@ -37,6 +44,7 @@ export const metadata: Metadata = {
     "breakfast Lake Michigan Drive",
     "eggs benedict Grand Rapids",
     "pancakes Grand Rapids MI",
+    "diner Grand Rapids",
   ],
   authors: [{ name: "Peppermill Cafe" }],
   openGraph: {
@@ -66,10 +74,10 @@ export default function RootLayout({
 }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Restaurant",
+    "@type": ["Restaurant", "LocalBusiness"],
     name: "Peppermill Cafe",
     description:
-      "Standale's favorite breakfast and brunch spot on the west side of Grand Rapids, MI.",
+      "Standale's favorite breakfast and brunch spot on the west side of Grand Rapids, MI. Best little Cafe/Restaurant on the west side of GR.",
     url: "https://peppermill-cafe.com",
     telephone: "+16164537853",
     email: "pmc4511@gmail.com",
@@ -89,7 +97,14 @@ export default function RootLayout({
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ],
         opens: "06:00",
         closes: "14:00",
       },
@@ -106,7 +121,11 @@ export default function RootLayout({
       "@type": "AggregateRating",
       ratingValue: "4.7",
       bestRating: "5",
-      reviewCount: "400",
+      reviewCount: "1000",
+    },
+    founder: {
+      "@type": "Person",
+      name: "David Vander Meer",
     },
     sameAs: ["https://www.facebook.com/peppermill.cafe.gr"],
   };
@@ -114,7 +133,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${caveat.variable} ${lato.variable}`}
+      className={`${dmSerifDisplay.variable} ${barlowCondensed.variable} ${lora.variable} ${shadowsIntoLight.variable}`}
     >
       <head>
         <script
